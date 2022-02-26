@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download | DropIT - File Sharing Made Easy</title>
+
+    <style>
+       :root {
+    --main-bg-color: #edf5fe;
+    --light-blue: #03a9f4;
+    --dark-blue: #028bca;
+  }
+
+  body {
+    font-family: system-ui;
+    background: var(--main-bg-color);
+    height: 98vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+  }
+
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+  }
+section.download {
+    background: #fff;
+    width: 430px;
+    max-width: 90%;
+    border-radius: 25px;
+    box-shadow: 0px 20px 20px 0px #00000017;
+    padding: 2rem;
+    text-align: center;
+}
+.download__icon {
+    height: 8rem;
+}
+.download__meta h4 {
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+.send-btn-container a {
+    display: inline-block;
+    font-size: 18px;
+    padding: 8px 40px;
+    margin-top: 15px;
+    background: var(--light-blue);
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+  }
+
+  .send-btn-container a:hover {
+      background: var(--dark-blue);
+  }
+ 
+    </style>
+</head>
+
+<body>
+    <img src="/logo.png" alt="DropIT log" class="logo">
+
+    <section class="download">
+        <img class="download__icon" src="/pictures/download-sd.svg" alt="DropIT-download">
+        <% if(locals.error){ %>
+        <h4><%= locals.error %> </h4>
+        <% } else { %>
+        <h2>Your file is ready to download</h2>
+        <p>Link expires in 24 hours</p>
+        <div class="download__meta">
+            <h4><%= fileName %></h4>
+            <small><%= parseInt(fileSize/1000) %> KB</small>
+        </div>
+        <div class="send-btn-container">
+            <a href="<%= downloadLink %>">Download file</a>
+        </div>
+        <% } %>
+    </section>
+
+</body>
+
+</html>
