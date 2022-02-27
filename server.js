@@ -12,7 +12,7 @@ connectDB();
 
 app.use(express.json());
 
-app.set('views', path.join(__dirname, '/views/download.ejs'));
+app.set('views', path.join(__dirname, '/views/download'));
 app.set('view engine', 'ejs');
 
 // Routes 
