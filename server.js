@@ -7,7 +7,7 @@ const path = require('path');
 
 app.use(express.static('./public'));
 
-const connectDB = require('./config/db');
+const { connectDB } = require('./config/db');
 connectDB();
 
 app.use(express.json());
